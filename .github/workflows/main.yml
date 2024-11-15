@@ -10,17 +10,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup.yml
+      - uses: ./.github/workflows/setup-env
       - run: npm test
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup.yml
+      - uses: ./.github/workflows/setup-env
       - run: npm run build
 
   format:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup.yml
+      - uses: ./.github/workflows/setup-env
       - run: npm run format:check
