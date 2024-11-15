@@ -22,7 +22,7 @@ function App() {
           data-testid="increment-button"
           onClick={() => setCount((count) => count + 1)}
         >
-          count is {count}
+          Count is {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
