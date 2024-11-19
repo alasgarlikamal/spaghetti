@@ -1,4 +1,4 @@
-name: Main
+name: CI
 
 on:
   push:
@@ -12,12 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
-      - run: npm ci
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: npm test
 
   build:
@@ -25,12 +21,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
-      - run: npm ci
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: npm run build
 
   format:
@@ -38,10 +30,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: npm ci
       - run: npm run format:check
