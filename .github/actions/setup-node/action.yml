@@ -4,8 +4,11 @@ runs:
   using: 'composite'
   steps:
     - name: Setup node
+      shell: bash
       uses: actions/setup-node@v3
       with:
         node-version: 18
         cache: 'npm'
-    - run: npm ci
+    - name: Install dependencies
+      shell: bash
+      run: npm ci
